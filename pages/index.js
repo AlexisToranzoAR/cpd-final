@@ -77,7 +77,7 @@ export default function Home() {
                     </Link>
                   </Grid>
                   <Grid item xs={12}>
-                    <Link href="/">
+                    <Link href="/password-reset">
                       <a>
                         <Typography variant="subtitle1" align="center">
                           Forgot password

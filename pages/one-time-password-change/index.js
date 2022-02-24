@@ -56,7 +56,7 @@ export default function OneTimePasswordChange() {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <Link href="/password-reset">
+                      <Link href="/dashboard">
                         <a>
                           <Button
                             color="primary"

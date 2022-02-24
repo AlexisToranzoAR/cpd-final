@@ -18,7 +18,7 @@ export default function Navbar({ children }) {
         color="secondary"
         style={{ borderBottom: "3px solid " + theme.palette.primary.main }}
       >
-        <Container maxWidth="xl">
+        <Container maxWidth={false}>
           <Toolbar disableGutters>
             <Typography
               variant="h6"

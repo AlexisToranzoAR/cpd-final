@@ -2,6 +2,7 @@ import Head from "../../components/Head";
 import InfoBar from "../../components/InfoBar";
 import { Grid, Card, CardContent, Button, Typography } from "@mui/material";
 import Link from "next/link";
+import TextField from "../../components/TextField";
 
 export default function PasswordReset() {
   return (
@@ -26,12 +27,32 @@ export default function PasswordReset() {
                 </Typography>
 
                 <Grid container spacing={2}>
+                  <Grid xs={12} item>
+                    <TextField
+                      fullWidth
+                      id="number"
+                      label="Member Number"
+                      placeholder="Enter member number"
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid xs={12} item>
+                    <TextField
+                      fullWidth
+                      id="email"
+                      label="Member Email"
+                      placeholder="Enter member email"
+                      variant="outlined"
+                    />
+                  </Grid>
                   <Grid item xs={12}>
-                  <Link href="/">
-                        <a><Button color="primary" fullWidth variant="contained">
-                      Close
-                    </Button></a></Link>
-                    
+                    <Link href="/">
+                      <a>
+                        <Button color="primary" fullWidth variant="contained">
+                          Request
+                        </Button>
+                      </a>
+                    </Link>
                   </Grid>
                 </Grid>
               </CardContent>
