@@ -14,7 +14,7 @@ export default function Navbar({ children }) {
   return (
     <>
       <AppBar
-        position="static"
+        position="fixed"
         color="secondary"
         style={{ borderBottom: "3px solid " + theme.palette.primary.main }}
       >
@@ -56,7 +56,7 @@ export default function Navbar({ children }) {
         </Container>
       </AppBar>
 
-      {children}
+      <div style={{ marginTop: 71 }}>{children}</div>
 
       <style jsx>{`
         .logoutContainer {

@@ -16,12 +16,12 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  InputBase
+  InputBase,
 } from "@mui/material";
 
 import { useState } from "react";
 
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined";
@@ -79,7 +79,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Sidebar(props) {
   const { window, title, children } = props;
-  const router = useRouter()
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -98,25 +98,25 @@ export default function Sidebar(props) {
   const drawer = (
     <div>
       <List>
-        <ListItem onClick={() => router.push('/dashboard')} button>
+        <ListItem onClick={() => router.push("/dashboard")} button>
           <ListItemIcon>
             <SpeedOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button>
+        <ListItem onClick={() => router.push("/submissions")} button>
           <ListItemIcon>
             <FolderSpecialOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Submissions" />
         </ListItem>
-        <ListItem button>
+        <ListItem onClick={() => router.push("/courses")} button>
           <ListItemIcon>
             <SchoolOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Courses" />
         </ListItem>
-        <ListItem button>
+        <ListItem onClick={() => router.push("/events")} button>
           <ListItemIcon>
             <EventOutlinedIcon />
           </ListItemIcon>
@@ -134,13 +134,13 @@ export default function Sidebar(props) {
           </ListItemIcon>
           <ListItemText primary="Users" />
         </ListItem>
-        <ListItem onClick={() => router.push('/certificates')} button>
+        <ListItem onClick={() => router.push("/certificates")} button>
           <ListItemIcon>
             <MilitaryTechOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Certificates" />
         </ListItem>
-        <ListItem onClick={() => router.push('/resources')} button>
+        <ListItem onClick={() => router.push("/resources")} button>
           <ListItemIcon>
             <SupportOutlinedIcon />
           </ListItemIcon>
@@ -156,7 +156,8 @@ export default function Sidebar(props) {
   return (
     <div>
       <AppBar
-        position="sticky"
+        position="fixed"
+        style={{ marginTop: 71 }}
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
@@ -197,7 +198,10 @@ export default function Sidebar(props) {
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Alexis Toranzo" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="Alexis Toranzo"
+                  src="/static/images/avatar/2.jpg"
+                />
               </IconButton>
             </Tooltip>
             <Menu
@@ -273,6 +277,7 @@ export default function Sidebar(props) {
           p: 2,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           marginLeft: { sm: `${drawerWidth}px` },
+          marginTop: { xs: "135px" },
         }}
       >
         {children}

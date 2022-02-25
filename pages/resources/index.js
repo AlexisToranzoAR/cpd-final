@@ -23,7 +23,7 @@ export default function Resources() {
       <Sidebar title="Resources">
         <Grid container spacing={2}>
           <Grid item xs={6} md={3}>
-            <Select label="Category Filter" />
+            <Select label="Category Filter" fullWidth />
           </Grid>
           <Grid item xs={6} md={9}></Grid>
           <Grid item xs={12}>

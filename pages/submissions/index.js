@@ -1,57 +1,65 @@
 import Sidebar from "../../components/Sidebar";
 import Head from "../../components/Head";
 import {
-  Typography,
   Grid,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
-  Box,
+  Typography,
 } from "@mui/material";
-import OutlinedField from "../../components/OutlinedField";
-
-import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
-import SearchIcon from "@mui/icons-material/Search";
 import DatePicker from "../../components/DatePicker";
+import Select from "../../components/Select";
 import { useState } from "react";
 
-export default function Certificates() {
+export default function Submissions() {
   const [date, setDate] = useState(null);
+  const [date2, setDate2] = useState(null);
 
   function handleDatePickerChange(value) {
     setDate(value);
   }
 
+  function handleDatePickerChange2(value) {
+    setDate2(value);
+  }
+
   return (
     <>
-      <Head title="Certificates - CPD" />
+      <Head title="Submissions - CPD" />
 
-      <Sidebar title="Certificates">
+      <Sidebar title="Submissions">
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant="h6">Generate your CPD Certificate</Typography>
-          </Grid>
-          <Grid item xs={6} md={3}>
+          <Grid item xs={4}>
             <DatePicker
               value={date}
               onChange={handleDatePickerChange}
-              label="Select Submission Year & Month"
-              views={["year", "month"]}
+              label="Date: From"
               fullWidth
             />
           </Grid>
-          <Grid item xs={6} md={3}>
-            <OutlinedField
-              label="Search Case Number"
-              icon={<SearchIcon color="primary" />}
+          <Grid item xs={4}>
+            <DatePicker
+              value={date2}
+              onChange={handleDatePickerChange2}
+              label="Date: To"
               fullWidth
             />
           </Grid>
-          <Grid item xs={0} md={6}></Grid>
+          <Grid item xs={4}>
+            <Select label="Case Status" fullWidth />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="subtitle1" display="inline" gutterBottom>
+              Default Filter Display:{" "}
+            </Typography>
+            <Typography variant="subtitle2" display="inline" gutterBottom>
+              Current Year
+            </Typography>
+          </Grid>
           <Grid item xs={12}>
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 1200 }} aria-label="simple table">
@@ -59,12 +67,10 @@ export default function Certificates() {
                   <TableRow>
                     <TableCell>Case #</TableCell>
                     <TableCell>Title</TableCell>
-                    <TableCell>Submission Type</TableCell>
+                    <TableCell>Type</TableCell>
                     <TableCell>Submission Date</TableCell>
-                    <TableCell>Certified Date</TableCell>
                     <TableCell>Status</TableCell>
-                    <TableCell>Certificate</TableCell>
-                    <TableCell align="center">Download Certificate</TableCell>
+                    <TableCell align="center">Material Required</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -76,20 +82,8 @@ export default function Certificates() {
                       </TableCell>
                       <TableCell>Single</TableCell>
                       <TableCell>2021/05/21</TableCell>
-                      <TableCell>2021/06/05</TableCell>
-                      <TableCell>Certified</TableCell>
-                      <TableCell>
-                        <Box
-                          sx={{
-                            color: "primary.main",
-                          }}
-                        >
-                          Generate Certificate
-                        </Box>
-                      </TableCell>
-                      <TableCell align="center">
-                        <FileDownloadOutlinedIcon />
-                      </TableCell>
+                      <TableCell>Submitted</TableCell>
+                      <TableCell align="center">{i % 2 === 0 ? "No" : "Yes"}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
